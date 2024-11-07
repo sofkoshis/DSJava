@@ -1,0 +1,22 @@
+/*Sofia Koshy
+ * AT Java with Mr. Eng
+ * 11/06/24
+ */
+import java.util.Scanner;
+public class Lesson11 {
+    public static void main(String[]args) {
+        Scanner in = new Scanner(System.in);
+// ask user for radius of the sphere
+System.out.print("What is the radius?: ");
+double radius = scanner.nextDouble();
+
+double volume = sphereVolume(radius);
+//Calculate radius and display
+   System.out.println("The volume of the sphere is: " , volume);
+
+   //Do all the calculations
+   private static double sphereVolume(double radius) {
+    return (4.0/3.-) * Math.PI * Math.pow(radius, 3);
+   }
+    }
+}
