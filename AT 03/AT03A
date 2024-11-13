@@ -1,0 +1,26 @@
+/* Sofia Koshy
+ * AT Java with Mr.Eng
+ * 11/13/2024
+ */
+import java.util.Scanner;
+
+public class AT03A {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+    
+    // ask for price
+System.out.print("Enter a price in dollars and cents ex. 05.25: ");
+double price = in.nextDouble();
+
+price = 100 * price;
+int cents = (int) (price);
+
+int dollars = cents/100;
+cents = cents % 100;
+
+//print how much money the user has as a double
+System.out.println("You have ",dollars, cents);
+
+
+    }
+}
