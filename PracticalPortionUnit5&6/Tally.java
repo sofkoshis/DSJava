@@ -24,7 +24,7 @@ public class Tally {
     public static void main(String[] args) {
         Tally c = new Tally();
     System.out.println("count = " );
-    //DONT DO PART A!!!!!!!!!!!!!
+    
         
     }
     
