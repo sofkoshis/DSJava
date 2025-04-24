@@ -62,8 +62,8 @@ public class Cannon {
         double xOff = 100 * Math.cos(angleR);
         double yOff = 100 * Math.sin(angleR);
 
-        int vx = (int) (37.0 * Math.cos(angleR));
-        int vy = (int) (37.0 * Math.sin(angleR));
+        int vx = (int) (30.0 * Math.cos(angleR));
+        int vy = (int) (30.0 * Math.sin(angleR));
 
         //launch ball
         ball.launch(x + xOff, y + yOff, vx, vy);

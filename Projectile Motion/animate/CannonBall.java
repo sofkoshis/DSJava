@@ -54,15 +54,15 @@ public class CannonBall {
     public void draw (Graphics2D g2d) {
         AffineTransform af = new AffineTransform();
         if (currState == STATE.EXPLODING) {
-            af.translate( - 45.0 / 2, y - 35.0 / 2);
+            af.translate( x - 45.0 / 2, y - 35.0 / 2);
             g2d.drawImage(flame, af, null);
         } else {
             if (currState == STATE.FLYING) {
                 af.translate(x - DIAMETER / 2, y - DIAMETER / 2);
                 Ellipse2D ellipse = new Ellipse2D.Float(0,0, (int)DIAMETER, (int)DIAMETER);
                 Shape shape = af.createTransformedShape(ellipse);
-                g2d.setColor(Color.MAGENTA);
-                g2d.draw(shape);
+                g2d.setColor(Color.RED);
+                g2d.fill(shape);
             }
         }      
     }
