@@ -52,8 +52,23 @@ public class Cannon {
            g2d.drawImage(imgCannon, affineTransform, null);
     }
 
-    public void fire() {
-        sndCannon.play();;
+
+    public void fire(CannonBall ball) {
+        if (ball.currState == CannonBall.STATE.FLYING) {
+            return;
+        }
+
+        double angleR = Math.toRadians(angle);
+        double xOff = 100 * Math.cos(angleR);
+        double yOff = 100 * Math.sin(angleR);
+
+        int vx = (int) (37.0 * Math.cos(angleR));
+        int vy = (int) (37.0 * Math.sin(angleR));
+
+        //launch ball
+        ball.launch(x + xOff, y + yOff, vx, vy);
+
+        sndCannon.play();
     }
 
     public void rotateCCW() {

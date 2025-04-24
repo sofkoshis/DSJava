@@ -8,6 +8,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Board extends JPanel implements KeyListener {
     private final int B_WIDTH = 1440;
@@ -16,6 +18,11 @@ public class Board extends JPanel implements KeyListener {
 
     private Cannon cannon;
     private final double INIT_ANGLE = -45;
+    private CannonBall ball;
+
+    private Timer timer;
+    private final int INITAL_DELAY = 100;
+    private final int TIMER_INTERVAL = 20;
 
     public Board() {
         setBackground(Color.CYAN);
@@ -24,8 +31,13 @@ public class Board extends JPanel implements KeyListener {
         this.setFocusable(true);
         this.addKeyListener(this);
         
+        
 
         cannon = new Cannon(60, B_HEIGHT - 60, INIT_ANGLE);
+
+        ball = new CannonBall(0, 1, FLOOR);
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new ScheduledUpdate(), INITAL_DELAY, TIMER_INTERVAL);
     }
 
     @Override
@@ -51,7 +63,7 @@ public class Board extends JPanel implements KeyListener {
         }
         if(e.getKeyCode() == KeyEvent.VK_SPACE) {
             System.out.println("Space key was pressed.");
-            cannon.fire();
+            cannon.fire(ball);
         }
 
     }
@@ -73,7 +85,22 @@ public class Board extends JPanel implements KeyListener {
         //draw cannon
         cannon.draw(g2d);
 
+        //draw ball
+        ball.draw(g2d);
 
+
+    }
+    private class ScheduledUpdate extends TimerTask {
+
+        @Override
+        public void run() {
+            // TODO Auto-generated method stub
+            //throw new UnsupportedOperationException("Unimplemented method 'run'");
+            ball.updateBall();
+
+            repaint();
+        }
+    
     }
     
 }
