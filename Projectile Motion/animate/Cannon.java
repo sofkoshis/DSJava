@@ -56,5 +56,28 @@ public class Cannon {
         sndCannon.play();;
     }
 
+    public void rotateCCW() {
+        angle = angle - 5;
+        if (angle < -90) {
+            angle = -90;
+
+        } else {
+            sndWheel.play();
+        }
+
+
+    }
+    
+    public void rotateCW() {
+        angle = angle + 5;
+        if (angle > 0) {
+            angle = 0;
+
+        } else {
+            sndWheel.play();
+        }
+
+    }
+
     
 }

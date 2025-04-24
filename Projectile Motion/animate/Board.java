@@ -40,10 +40,14 @@ public class Board extends JPanel implements KeyListener {
         // throw new UnsupportedOperationException("Unimplemented method 'keyPressed'");
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             System.out.println("Left arrow was pressed.");
+            cannon.rotateCCW();
+            repaint();
 
         }
         if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
             System.out.println("Right key was pressed.");
+            cannon.rotateCW();
+            repaint();
         }
         if(e.getKeyCode() == KeyEvent.VK_SPACE) {
             System.out.println("Space key was pressed.");
